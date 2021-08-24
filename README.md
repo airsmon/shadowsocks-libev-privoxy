@@ -19,4 +19,21 @@ git clone https://github.com/shadowsocks/shadowsocks-libev.git
 git submodule init && git submodule update
 
 # clone 
+git clone git@github.com:airsmon/shadowsocks-libev-privoxy.git
+```
+
+### build
+```bash
+# Copy files to overwrite
+cd shadowsocks-libev && cp -rp ../shadowsocks-libev-privoxy/docker .
+
+# build image
+docker build .
+
+# Modify the mirror tag
+docker image tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+```
+### running
+```bash
+docker run -d -e SERVER_HOST="address" -e SERVER_PORT="port" -e PASSWORD="password" -e ENCRYPT_METHOD="aes-256-cfb" -e LOCAL_ADDRESSS="0.0.0.0" -e LOCAL_PORT="1080" -v /root/config:/etc/privoxy/config -p 8118:8118 
 ```

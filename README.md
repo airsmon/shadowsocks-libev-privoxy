@@ -1,4 +1,4 @@
-# shadowsocks-libev and privoxy
+# shadowsocks-libev-privoxy
 
 ## Installation
 
